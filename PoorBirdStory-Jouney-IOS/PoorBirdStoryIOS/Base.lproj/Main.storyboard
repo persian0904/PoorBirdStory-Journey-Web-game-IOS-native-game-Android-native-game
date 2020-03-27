@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Game-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="game" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2G0-4g-Qq8"/>
+                        <viewControllerLayoutGuide type="bottom" id="OZh-xr-dft"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="apV-4d-6z4" customClass="background">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vee-cR-AzH">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="DAs-3E-0BQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="Vee-cR-AzH" firstAttribute="trailing" secondItem="apV-4d-6z4" secondAttribute="trailing" id="2LX-Jg-QVK"/>
+                                    <constraint firstItem="DAs-3E-0BQ" firstAttribute="leading" secondItem="apV-4d-6z4" secondAttribute="leading" id="2mU-bm-rv1"/>
+                                    <constraint firstItem="DAs-3E-0BQ" firstAttribute="bottom" secondItem="apV-4d-6z4" secondAttribute="bottom" id="3Z0-gx-F0h"/>
+                                    <constraint firstItem="Vee-cR-AzH" firstAttribute="top" secondItem="apV-4d-6z4" secondAttribute="top" id="Bs1-8F-9Nd"/>
+                                    <constraint firstItem="Vee-cR-AzH" firstAttribute="leading" secondItem="apV-4d-6z4" secondAttribute="leading" id="ClK-u6-7uk"/>
+                                    <constraint firstItem="DAs-3E-0BQ" firstAttribute="trailing" secondItem="apV-4d-6z4" secondAttribute="trailing" id="bj0-Zg-7qZ"/>
+                                    <constraint firstItem="Vee-cR-AzH" firstAttribute="bottom" secondItem="apV-4d-6z4" secondAttribute="bottom" id="oS9-cN-0Ni"/>
+                                    <constraint firstItem="DAs-3E-0BQ" firstAttribute="top" secondItem="apV-4d-6z4" secondAttribute="top" id="wSZ-hu-Fca"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="bgImageBase" destination="Vee-cR-AzH" id="vyv-LD-enb"/>
+                                    <outlet property="bgImageRun" destination="DAs-3E-0BQ" id="Thq-xX-12g"/>
+                                </connections>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-kI-fPc" customClass="tunnel">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYV-fJ-0EJ" customClass="tunnel">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBg-kX-sef" customClass="base">
+                                <rect key="frame" x="0.0" y="786" width="414" height="110"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" image="base.png" translatesAutoresizingMaskIntoConstraints="NO" id="fwu-X0-Yd2">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-Xb-U5J">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="110" id="kpd-E2-Vj7"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="imageBase" destination="fwu-X0-Yd2" id="zQY-IU-V4U"/>
+                                    <outlet property="imageBaseRun" destination="5JE-Xb-U5J" id="im7-qc-q9e"/>
+                                </connections>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="blk-VV-t8h" customClass="bird">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M7x-zb-6Wd" customClass="live">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dH6-1u-wB0" customClass="live">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aD9-rX-FOL" customClass="live">
+                                <rect key="frame" x="87" y="384" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" text="Score" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wMA-7M-BRC" customClass="Score">
+                                <rect key="frame" x="145" y="418" width="123" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="50"/>
+                                <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="right" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="NO" text="The Story Of a Poor Bird" textAlignment="center" lineBreakMode="tailTruncation" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjA-Ee-f6G" customClass="TextInfo">
+                                <rect key="frame" x="44" y="418" width="333" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <color key="textColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="apV-4d-6z4" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="6W5-gI-Ooe"/>
+                            <constraint firstItem="apV-4d-6z4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="7DD-JS-2yB"/>
+                            <constraint firstItem="apV-4d-6z4" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="KQ8-4E-eBU"/>
+                            <constraint firstItem="apV-4d-6z4" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="PyK-ji-V8j"/>
+                            <constraint firstItem="aBg-kX-sef" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="TD6-Zb-BPH"/>
+                            <constraint firstAttribute="bottom" secondItem="aBg-kX-sef" secondAttribute="bottom" id="yOY-Xh-OOd"/>
+                        </constraints>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="backgroundViewer" destination="apV-4d-6z4" id="7Dp-Kk-90q"/>
+                        <outlet property="baseViewer" destination="aBg-kX-sef" id="Mrf-k6-Q5h"/>
+                        <outlet property="birdViewer" destination="blk-VV-t8h" id="eDd-Vl-EDE"/>
+                        <outlet property="liveImgViewer1" destination="M7x-zb-6Wd" id="7dx-qG-rHE"/>
+                        <outlet property="liveImgViewer2" destination="dH6-1u-wB0" id="LBl-yb-DWI"/>
+                        <outlet property="liveImgViewer3" destination="aD9-rX-FOL" id="8x2-Rz-awh"/>
+                        <outlet property="scoreLB" destination="wMA-7M-BRC" id="aNd-Dj-KhP"/>
+                        <outlet property="textInfo" destination="xjA-Ee-f6G" id="bEn-jh-RwQ"/>
+                        <outlet property="tunnelAbove" destination="dj1-kI-fPc" id="gVW-2j-HaX"/>
+                        <outlet property="tunnelBottom" destination="XYV-fJ-0EJ" id="r82-KG-K0V"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="89" y="150"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background.png" width="288" height="505"/>
+        <image name="base.png" width="339" height="110"/>
+    </resources>
+</document>

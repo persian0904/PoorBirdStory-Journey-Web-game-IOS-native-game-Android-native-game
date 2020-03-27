@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+.top {
+    background-color:#f1f1f1;padding:15px;
+}
+.left {
+  float: left;
+  width: 20%;
+  background-color: sienna;
+}
+.main {
+  float: left;
+  width: 60%;
+  padding: 0 20px;
+  overflow: hidden;
+  background-color: silver;
+}
+.right {
+  background-color: lightblue;
+  float: left;
+  width: 20%;
+}
+
+@media only screen and (max-width:800px) {
+  /* For tablets: */
+  .main {
+    width: 80%;
+    padding: 0;
+  }
+  .right {
+    width: 100%;
+  }
+}
+@media only screen and (max-width:500px) {
+  /* For mobile phones: */
+  .left, .main, .right {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body style="font-family:Verdana;">
+
+<div class="top">
+  <h3>top content</h3>
+</div>
+
+<div style="overflow:auto">
+  <div class="left">
+      <h2>left content</h2>
+  </div>
+  <div class="main">
+      <h2> main content</h2>
+  </div>
+  <div class="right">
+      <h2>right content</h2>
+  </div>
+</div>
+</body>
+</html>

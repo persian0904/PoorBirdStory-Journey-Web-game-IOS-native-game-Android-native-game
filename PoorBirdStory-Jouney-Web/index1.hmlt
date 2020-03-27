@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+        }
+
+        .top {
+            background-color: #f1f1f1;
+            padding: 15px;
+        }
+
+        .left {
+            float: left;
+            width: 20%;
+            background-color: sienna;
+        }
+
+        .main {
+            float: left;
+            width: 60%;
+            padding: 0 20px;
+            overflow: hidden;
+            background-color: silver;
+        }
+
+        .right {
+            background-color: lightblue;
+            float: left;
+            width: 20%;
+        }
+
+        @media only screen and (max-width:800px) {
+
+            /* For tablets: */
+            .main {
+                width: 80%;
+                padding: 0;
+            }
+
+            .right {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width:500px) {
+
+            /* For mobile phones: */
+            .left,
+            .main,
+            .right {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+ 
+    <div class="container">
+        <div id="canvas">
+
+        </div>
+    </div>
+    <script type="text/javascript" src="information.js"></script>
+    <script type="text/javascript" src="bird.js"></script>
+    <script type="text/javascript" src="bg.js"></script>
+    <script type="text/javascript" src="base.js"></script>
+    <script type="text/javascript" src="pipe.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+</body>
+
+</html>
