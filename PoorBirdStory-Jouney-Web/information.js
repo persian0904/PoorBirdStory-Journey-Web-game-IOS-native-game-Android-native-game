@@ -43,7 +43,7 @@ var information = function (game) {
     
   }
   this.wrapText = function () {
-    this.description = "chuyen phuu luu cua chu chim plappy bird toi nghiep";
+    this.description = "";
     this.maxWidth = 250;
     this.lineHeight = 20;
     this.xWrap = this.x;
