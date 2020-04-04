@@ -99,6 +99,7 @@
             [liveImgViewer1 initiation:self];
             [tunnelAbove initiation:self];
             [scoreLB initiation:self];
+            [textInfo initiation:self];
         }
     }
 }

@@ -22,6 +22,7 @@
     this_game =(game *) gaming;
     textInfo = self;
     //textInfo.text = @"The Story Of a Poor Bird";
+    textInfo.textColor = UIColor.yellowColor;
     txtStr = @"The Story Of a Poor Bird";
     //scoreWidth = [UIScreen mainScreen].bounds.size.width * 0.3;
     //scoreHeight = [UIScreen mainScreen].bounds.size.height*0.2;

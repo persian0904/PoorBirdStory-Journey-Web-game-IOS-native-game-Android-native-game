@@ -29,13 +29,13 @@
     [imageBaseRun setImage:[UIImage imageNamed: @"base.png"]];
     
     imageBase.frame = CGRectMake(x, y, width, height);
-    imageBaseRun.frame = CGRectMake(x + width - 4, y, width, height);
+    imageBaseRun.frame = CGRectMake(x + width, y, width, height);
     
 }
 - (void) Draw;{
     //NSLog(@"bacground draw");
     imageBase.frame = CGRectMake(x, y, width, height);
-    imageBaseRun.frame = CGRectMake(x + width - 4, y, width, height);
+    imageBaseRun.frame = CGRectMake(x + width, y, width, height);
 }
 
 - (void) Update;{

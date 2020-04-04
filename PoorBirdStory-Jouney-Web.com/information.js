@@ -91,7 +91,7 @@ var information = function (game) {
       } else {
         if (this.game.started == true) {
           if(this.waitCnt > 0){
-            this.game.context.fillText("please wairt", this.game.bg.Width / 2, (this.game.bg.height / 2) - 100);
+            this.game.context.fillText("please wait", this.game.bg.Width / 2, (this.game.bg.height / 2) - 100);
             this.game.context.fillText(this.waitCnt, this.game.bg.Width / 2, this.game.bg.height / 2);
           } else{
             this.game.context.fillText("tap to continue", this.game.bg.Width / 2, (this.game.bg.height / 2) - 100);
