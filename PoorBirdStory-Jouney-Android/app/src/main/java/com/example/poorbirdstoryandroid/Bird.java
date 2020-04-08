@@ -40,8 +40,8 @@ public class Bird {
         birdImg[0] = BitmapFactory.decodeResource(context.getResources(), R.drawable.bird1);
         birdImg[1] = BitmapFactory.decodeResource(context.getResources(), R.drawable.bird2);
         birdImg[2] = BitmapFactory.decodeResource(context.getResources(), R.drawable.bird3);
-        birdWidth = birdImg[0].getWidth();
-        birdHeight = birdImg[0].getHeight();
+        birdWidth = birdImg[0].getWidth()*2;
+        birdHeight = birdImg[0].getHeight()*2;
         currBirdIndex = 0;
         frame = 0;
     }

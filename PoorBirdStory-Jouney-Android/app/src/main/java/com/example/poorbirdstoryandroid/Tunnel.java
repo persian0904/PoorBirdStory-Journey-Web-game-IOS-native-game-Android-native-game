@@ -65,8 +65,8 @@ public class Tunnel {
 
         tunnelX = -2*canvasWidth;
 
-        tunnelWidth = (int) (tunnelImage[above].getWidth() * 0.3);
-        tunnelHeight = (int) (tunnelImage[above].getHeight() * 0.3);
+        tunnelWidth = (int) (tunnelImage[above].getWidth() * 0.6);
+        tunnelHeight = (int) (tunnelImage[above].getHeight() * 0.6);
 
         minTunnelY = 0 - tunnelHeight + tunnelRange;
         maxTunnelY = canvasHeight - gameView.base.baseHeight - tunnelRange - tunnelRange - tunnelHeight;
