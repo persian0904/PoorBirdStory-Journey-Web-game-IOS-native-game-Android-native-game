@@ -1,0 +1,227 @@
+package com.example.theflyingbird;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.Typeface;
+import android.view.MotionEvent;
+import android.view.View;
+
+import java.util.Random;
+
+public class GameView extends View {
+
+    //frame
+    private int frame = 0;
+    //Canvas
+    private int canvasWidth;
+    private int canvasHeight;
+
+    //Bird
+    private Bitmap bird;
+    private int currBird = R.drawable.bird1;
+    //    private Bitmap bird[] = new Bitmap[3];
+    private int birdX = 200;
+    private int birdY = 200;
+    private int birdSpeed = 0;
+    private int birdacceleration = 2;
+
+    //Backgroound
+    private Bitmap bgImage[] = new Bitmap[2];
+    private int leftBgImage;
+    private int bgImageSpeed = 7;
+
+    //Base
+    private Bitmap baseImage[] = new Bitmap[2];
+    private int baseImageHeight;
+    private int leftBase;
+    private int baseSpeed = 10;
+
+    //tunnel
+    private Bitmap tunnel[] = new Bitmap[2];
+    private int tunnelX;
+    private int tunnelY;
+    private int tunnelSpeed = 10;
+    private int maxTunnelY;
+    private int minTunnelY;
+    private int tunnelRange = 230;
+    private Paint tunnelPaint = new Paint();
+
+    //Score
+    private Paint scorePain = new Paint();
+    private int score = -1;
+    private boolean scoreFlg = true;
+
+    //Level
+    private Paint levelPain = new Paint();
+
+    //Life
+    private Bitmap life;
+    private int lifeCnt = 3;
+
+    //status check
+    private boolean touch_flg = false;
+    private boolean gameStart = false;
+
+
+    public GameView(Context context) {
+        super(context);
+        //bird
+        //bird = BitmapFactory.decodeResource(getResources(), currBird);
+        //background
+        bgImage[0] = BitmapFactory.decodeResource(getResources(), R.drawable.background);
+        bgImage[1] = bgImage[0];
+        //base
+        baseImage[0] = BitmapFactory.decodeResource(getResources(), R.drawable.base);
+        baseImage[1] = baseImage[0];
+        baseImageHeight = baseImage[0].getHeight();
+        //tunnel
+        tunnel[0] = BitmapFactory.decodeResource(getResources(), R.drawable.pipe_above);
+        tunnel[1] = BitmapFactory.decodeResource(getResources(), R.drawable.pipe_bottom);
+
+        //Score text
+        scorePain.setColor(Color.YELLOW);
+        scorePain.setTextSize(50);
+        scorePain.setTypeface(Typeface.DEFAULT);
+        scorePain.setAntiAlias(true);
+        //Level Text
+        //levelPain.setColor(Color.DKGRAY);
+        //levelPain.setTextSize(32);
+        //levelPain.setTypeface(Typeface.DEFAULT);
+        //levelPain.setAntiAlias(true);
+        //levelPain.setTextAlign(Paint.Align.CENTER);
+
+        //life image
+        life = BitmapFactory.decodeResource(getResources(), R.drawable.live);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        //super.onDraw(canvas);
+
+        canvasWidth = canvas.getWidth();
+        canvasHeight = canvas.getHeight();
+
+//background
+        leftBgImage -= bgImageSpeed;
+        if (leftBgImage <= -canvasWidth) {
+            leftBgImage = 0;
+        }
+
+        Rect backgroundRectangle = new Rect(leftBgImage, 0, leftBgImage + canvasWidth, canvasHeight);
+        canvas.drawBitmap(bgImage[0], null, backgroundRectangle, null);
+
+        int leftBgImage2 = leftBgImage + canvasWidth;
+        Rect backgroundRectangle2 = new Rect(leftBgImage2, 0, leftBgImage2 + canvasWidth, canvasHeight);
+        canvas.drawBitmap(bgImage[1], null, backgroundRectangle2, null);
+
+//tunnel
+        tunnelX -= tunnelSpeed;
+        int tunnelWidth = (int) (tunnel[0].getWidth() * 0.3);
+        int tunnelHeight = (int) (tunnel[0].getHeight() * 0.3);
+
+        minTunnelY = 0 - tunnelHeight + tunnelRange;
+        maxTunnelY = canvasHeight - baseImageHeight - tunnelRange - tunnelRange - tunnelHeight;
+        if (tunnelX < 0 - tunnelWidth) {
+            tunnelX = canvasWidth + 20;
+            tunnelY = (int) Math.floor(Math.random() * (maxTunnelY - minTunnelY) + minTunnelY);
+        }
+
+        int tunnelAboveXleft = tunnelX;
+        int tunnelAboveYtop = tunnelY;
+        int tunnelAboveXright = tunnelAboveXleft + tunnelWidth;
+        int tunnelAboveYbottom = tunnelAboveYtop + tunnelHeight;
+        Rect tunnelRectangleAbove = new Rect(tunnelAboveXleft, tunnelAboveYtop, tunnelAboveXright, tunnelAboveYbottom);
+
+        int tunnelBottomXleft = tunnelAboveXleft;
+        int tunnelBottomYtop = tunnelAboveYtop + tunnelHeight + tunnelRange;
+        int tunnelBottomXright = tunnelAboveXright;
+        int tunnelBottomYbottom = tunnelBottomYtop + tunnelHeight;
+        Rect tunnelRectangleBottom = new Rect(tunnelBottomXleft, tunnelBottomYtop, tunnelBottomXright, tunnelBottomYbottom);
+
+        canvas.drawBitmap(tunnel[0], null, tunnelRectangleAbove, null);
+        canvas.drawBitmap(tunnel[1], null, tunnelRectangleBottom, null);
+
+//base
+        leftBase -= baseSpeed;
+
+        if (leftBase <= -canvasWidth) {
+            leftBase = 0;
+        }
+        int topBase = canvasHeight - baseImageHeight;
+        int widthBase = leftBase + canvasWidth;
+        int bottomBase = canvasHeight;
+
+        Rect baseRectangle = new Rect(leftBase, topBase, widthBase, bottomBase);
+        canvas.drawBitmap(baseImage[0], null, baseRectangle, null);
+
+        int leftBase2 = leftBase + canvasWidth;
+        int widthBase2 = leftBase2 + canvasWidth;
+
+        Rect baseRectangle2 = new Rect(leftBase2, topBase, widthBase2, bottomBase);
+        canvas.drawBitmap(baseImage[1], null, baseRectangle2, null);
+
+//bird
+        frame += 1;
+        if (frame == 7) {
+            frame = 0;
+            if (currBird == R.drawable.bird1) {
+                currBird = R.drawable.bird2;
+            } else {
+                currBird = R.drawable.bird1;
+            }
+        }
+        bird = BitmapFactory.decodeResource(getResources(), currBird);
+            int minBirdY = 0;
+            int maxBirdY = topBase - bird.getHeight();
+            birdSpeed += birdacceleration;
+            birdY += birdSpeed;
+            if (birdY <= minBirdY) {
+                birdY = minBirdY;
+            }
+            if (birdY >= maxBirdY) {
+                birdY = maxBirdY;
+            }
+
+        if (touch_flg) {
+            //flap
+            touch_flg = false;
+        }
+        canvas.drawBitmap(bird, birdX, birdY, null);
+
+//score
+        if (tunnelAboveXright <= birdX) {
+            if (scoreFlg) {
+                scoreFlg = false;
+                score++;
+            }
+        } else {
+            if (!scoreFlg) {
+                scoreFlg = true;
+            }
+        }
+        int scorePosX = canvasWidth / 2;
+        int scorePosY = 10 - (int) ((scorePain.descent() + scorePain.ascent()));
+        canvas.drawText(String.valueOf(score), scorePosX, scorePosY, scorePain);
+
+//life
+        for (int i = 0; i < lifeCnt; i++) {
+            canvas.drawBitmap(life, 10 + i * 40, 10, null);
+        }
+
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            touch_flg = true;
+            gameStart = true;
+            birdSpeed = -25;
+        }
+        return true;
+    }
+}
