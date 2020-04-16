@@ -3,5 +3,5 @@
 # persian0904@gmail.com
 # https://www.facebook.com/NghiemThanhTuan
 # Objective-C
-# Java Android - on process
+# Java Android
 # javascript - HTML5. Play online here: http://nghiemtuan.asia/
