@@ -4,4 +4,4 @@
 # https://www.facebook.com/NghiemThanhTuan
 # Objective-C
 # Java Android
-# javascript - HTML5. Play online here: https://nghiemtuan.asia/
+# javascript - HTML5. Play online here: https://nghiemtuan.tk/
