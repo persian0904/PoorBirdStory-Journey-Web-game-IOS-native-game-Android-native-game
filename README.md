@@ -4,4 +4,4 @@
 # https://www.facebook.com/NghiemThanhTuan
 # Objective-C
 # Java Android
-# javascript - HTML5. Play refer to PoorBirdStory-Jouney-Web.com folder
+# javascript - HTML5. Please refer to PoorBirdStory-Jouney-Web.com folder
